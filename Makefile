@@ -16,7 +16,7 @@ $(SNAME) :
 
 clean :
 	rm -rf $(CNAME)
-	rm -rf $(CNAMEb)
+	rm -rf $(SNAME)
 
 fclean : clean
 

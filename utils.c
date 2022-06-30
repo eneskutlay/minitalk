@@ -6,26 +6,14 @@
 /*   By: ekutlay <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 20:34:05 by ekutlay           #+#    #+#             */
-/*   Updated: 2022/06/13 20:43:17 by ekutlay          ###   ########.fr       */
+/*   Updated: 2022/06/13 20:34:07 by ekutlay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "minitalk.h"
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		write(1, &str[i++], 1);
-	}
 }
 
 void	ft_putnbr(int nb)
@@ -46,4 +34,47 @@ void	ft_putnbr(int nb)
 	}
 	else
 		ft_putchar(i + '0');
+}
+
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		write(1, &str[i++], 1);
+}
+
+void	ft_error(char *str)
+{
+	ft_putstr(str);
+	exit(0);
+}
+
+int	ft_atoi(char *str)
+{
+	int	j;
+	int	k;
+	int	l;
+
+	j = 1;
+	k = 0;
+	l = 0;
+	while ((*str <= 13 && *str >= 9) || *str == ' ')
+		str++;
+	if (*str == '-')
+		j *= -1;
+	if (*str == '+' || *str == '-')
+		str++;
+	while (*str <= '9' && *str >= '0')
+	{
+		k = k * 10 + *str -48;
+		str++;
+		l++;
+	}
+	if (l >= 19 && j > 0)
+		return (-1);
+	if (l >= 19 && j < 0)
+		return (0);
+	return (k * j);
 }
