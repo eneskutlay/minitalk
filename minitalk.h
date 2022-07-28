@@ -22,4 +22,10 @@ void	ft_putstr(char *str);
 void	ft_error(char *str);
 int		ft_atoi(char *str);
 
+void	handler(int sig);
+void	sigusr(int sign);
+int		check_if_digit(char *str);
+void	send_byte(char c, int pid);
+void	send_str(int pid, char *msg);
+
 #endif
