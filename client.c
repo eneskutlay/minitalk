@@ -52,6 +52,8 @@ void	send_str(int pid, char *msg)
 	{
 		send_byte(msg[i], pid);
 		i++;
+		if (msg[i] == '\0')
+			send_byte('\n', pid);
 	}
 }
 
